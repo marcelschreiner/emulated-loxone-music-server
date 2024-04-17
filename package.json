@@ -1,0 +1,16 @@
+{
+  "name": "emulated-loxone-music-server",
+  "version": "1.0.0",
+  "description": "Emulated Loxone music server",
+  "main": "music-server/index.js",
+  "scripts": {
+    "prettier": "prettier --write '**/*.{js,md}'",
+    "start server and gateway": "python3 music-gateway/main.py"
+  },
+  "author": "Miguel Jimenez <mjesun@hotmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "prettier": "^1.19.1",
+    "websocket": "^1.0.31"
+  }
+}
