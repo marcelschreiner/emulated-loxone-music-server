@@ -1,3 +1,5 @@
+[![HitCount](https://hits.dwyl.com/marcelschreiner/emulated-loxone-music-server.svg?style=flat)](http://hits.dwyl.com/marcelschreiner/emulated-loxone-music-server)
+
 # Emulated Loxone Music Server
 
 This project aims to integrate Sonos and Chromecast speakers into the Loxone universe.
