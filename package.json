@@ -4,7 +4,7 @@
   "description": "Emulating a Loxone Music Server to integrate Sonos and Chromecast speakers in the Loxonoe unsiverse.",
   "main": "music-server/index.js",
   "scripts": {
-    "start server and gateway": "python3 music-gateway/main.py",
+    "start server and integrations": "python3 music-integrations/integration_manager.py",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
