@@ -1,16 +1,36 @@
 {
   "name": "emulated-loxone-music-server",
-  "version": "1.0.0",
-  "description": "Emulated Loxone music server",
+  "version": "0.0.1",
+  "description": "Emulating a Loxone Music Server to integrate Sonos and Chromecast speakers in the Loxonoe unsiverse.",
   "main": "music-server/index.js",
   "scripts": {
-    "prettier": "prettier --write '**/*.{js,md}'",
-    "start server and gateway": "python3 music-gateway/main.py"
+    "start server and gateway": "python3 music-gateway/main.py",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Miguel Jimenez <mjesun@hotmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marcelschreiner/emulated-loxone-music-server.git"
+  },
+  "author": "Marcel Schreiner",
   "license": "MIT",
-  "devDependencies": {
-    "prettier": "^1.19.1",
-    "websocket": "^1.0.31"
+  "bugs": {
+    "url": "https://github.com/marcelschreiner/emulated-loxone-music-server/issues"
+  },
+  "homepage": "https://github.com/marcelschreiner/emulated-loxone-music-server#readme",
+  "dependencies": {
+    "d": "^1.0.1",
+    "debug": "^2.6.9",
+    "es5-ext": "^0.10.53",
+    "es6-iterator": "^2.0.3",
+    "es6-symbol": "^3.1.3",
+    "ext": "^1.4.0",
+    "is-typedarray": "^1.0.0",
+    "ms": "^2.0.0",
+    "nan": "^2.14.0",
+    "next-tick": "^1.0.0",
+    "type": "^1.2.0",
+    "typedarray-to-buffer": "^3.1.5",
+    "websocket": "^1.0.31",
+    "yaeti": "^0.0.6"
   }
 }
