@@ -1,5 +1,46 @@
 from datetime import datetime, timedelta
-import json
+import os
+from gtts import gTTS, lang
+
+
+class TTS:
+    @staticmethod
+    def _loxone_lang_to_gtts_lang(loxone_lang):
+        # Loxone supported languages
+        conversion = {
+            "DEU": "de",  # German
+            "cz": "cs",  # Czech
+            "en": "en",  # British English
+            "us": "en",  # American English
+            "es": "es",  # Spanish
+            "fi": "fi",  # Finnish
+            "fr": "fr",  # French
+            "hu": "hu",  # Hungarian
+            "it": "it",  # Italian
+            "nl": "nl",  # Dutch
+            "pl": "pl",  # Polish
+            "ru": "ru",  # Russian
+            "tr": "tr",  # Turkish
+            "pt": "pt",  # Portuguese
+            "cat": "ca",  # Catalan
+            "se": "sv",  # Swedish
+            "cn": "zh",  # Chinese
+        }
+        if loxone_lang in conversion:
+            return conversion[loxone_lang]
+        else:
+            return "en"
+
+    @staticmethod
+    def generate_mp3(lang_and_message):
+        language, message = lang_and_message.split("|", 1)
+        tts = gTTS(message, lang=TTS._loxone_lang_to_gtts_lang(language))
+        timestamp_milli = datetime.now().strftime("%Y%m%d_%H%M%S_%f")[:-3]
+        current_file_path = os.path.dirname(os.path.abspath(__file__))
+        filename = f"{current_file_path}/../music-files/tts_{timestamp_milli}.mp3"
+        relative_filename = f"static/tts_{timestamp_milli}.mp3"
+        tts.save(filename)
+        return relative_filename
 
 
 class Player:
@@ -145,3 +186,6 @@ class MusicZoneBase:
 
     def get_str(self):
         return {"player": self.player.get_str(), "track": self.track.get_str()}
+
+    async def tts(self, lang_and_message, volume):
+        return TTS.generate_mp3(lang_and_message)

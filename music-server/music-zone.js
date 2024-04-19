@@ -284,6 +284,23 @@ module.exports = class MusicZone {
     this._pushAudioEvent();
   }
 
+  async tts(text, volume) {
+    const transaction = this._transaction();
+    transaction.end();
+
+    try {
+      await this._sendPlayerCommand('POST', '/tts/' + text + '/' + volume);
+    } catch (err) {
+      if (err.type === 'BACKEND_ERROR') {
+        console.error('[ERR!] Invalid reply for "sync": ' + err.message);
+        transaction.rollback();
+      } else {
+        console.error('[ERR!] Default behavior for "sync": ' + err.message);
+      }
+    }
+
+    this._pushAudioEvent();
+  }
 
   async volume(volume) {
     const transaction = this._transaction();

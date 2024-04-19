@@ -96,6 +96,17 @@ class MusicZoneSonos(MusicZoneBase):
             )
         return queue_list
 
+    async def tts(self, lang_and_message, volume):
+        old_volume = self.sonos_player.volume
+        relative_path_to_file = await super().tts(lang_and_message, volume)
+        snapshotclass = snapshot.Snapshot(self.sonos_player, snapshot_queue=False)
+        snapshotclass.snapshot()
+        self.set_volume(volume)
+        self.sonos_player.group.coordinator.play_uri(f"http://10.1.10.90:8091/{relative_path_to_file}")
+        await asyncio.sleep(10)
+        snapshotclass.restore()
+        self.set_volume(old_volume)
+
     def _time_str_to_milliseconds(self, time_str):
         if time_str == "NOT_IMPLEMENTED":
             return 0

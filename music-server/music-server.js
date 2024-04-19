@@ -540,6 +540,9 @@ module.exports = class MusicServer {
       case /(?:^|\/)audio\/\d+\/sync\/(\d+\/)+/.test(url):
         return this._audioSync(url);
 
+      case /(?:^|\/)audio\/\d+\/tts\/.+?\|.+?\/\d+$/.test(url):
+        return this._audioTTS(url);
+
       case /(?:^|\/)audio\/\d+\/volume\/[+-]?\d+(?:\/|$)/.test(url):
         return this._audioVolume(url);
 
@@ -1078,6 +1081,20 @@ module.exports = class MusicServer {
         await zone.sync(parseInt(zoneId));
       }
     }
+
+    return this._audioCfgGetPlayersDetails('audio/cfg/getplayersdetails');
+  }
+
+  async _audioTTS(url) {
+    const parts = url.split('/');
+    const zoneId = parts[1];
+    const zone = this._zones[+zoneId - 1];
+
+    // Extract the text, this can be a bit tricky because the text can contain "/"
+    const text = url.replace(/^audio\/\d+\/tts\//, '').replace(/\/\d+$/, '');
+    const volume = parts[parts.length - 1];
+
+    await zone.tts(text, volume);
 
     return this._audioCfgGetPlayersDetails('audio/cfg/getplayersdetails');
   }

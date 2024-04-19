@@ -122,6 +122,8 @@ async def handle_action_with_value(request):
             return_value = zones[zone_id].get_favorites()
         elif action == "alarm":
             await zones[zone_id].set_alarm(value, int(request.match_info["value2"]))
+        elif action == "tts":
+            await zones[zone_id].tts(value, int(request.match_info["value2"]))
         else:
             return web.HTTPNotFound()
 
