@@ -1,6 +1,7 @@
 from integration_sonos import MusicZoneSonos
 from integration_cast import MusicZoneCast
 from integration_base import MusicZoneBase
+from integration_ha import MusicZoneHA
 import asyncio
 from aiohttp import web
 from subprocess import Popen
@@ -9,6 +10,12 @@ import os
 import json
 
 zones = [None] * 20
+
+# Set the credentials for the Home Assistant API
+MusicZoneHA.set_credentials(
+    api_url="http://IP_OF_YOUR_HA_INSTANCE:8123/api",
+    token="YOUR_LONG_LIVED_HA_ACCESS_TOKEN",
+)
 
 # Manually define the zones
 zones[0] = MusicZoneSonos("Schlafzimmer")
@@ -30,7 +37,7 @@ zones[15] = MusicZoneBase()
 zones[16] = MusicZoneBase()
 zones[17] = MusicZoneBase()
 zones[18] = MusicZoneBase()
-zones[19] = MusicZoneBase()
+zones[19] = MusicZoneHA("media_player.desk_marcel")
 
 
 def is_zone_id_valid(zone_id):

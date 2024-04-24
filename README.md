@@ -11,52 +11,53 @@ To achieve this, the interface of a music server is emulated. As far as the Loxo
 
 The following table aims to give an overview of the functions the Music Server Supports and which of them are already implemented.
 
-| URL Pattern | Description | Sonos Integration | Chomecast integration
-|-------------|-------------|-------------------|-----------------------|
-| `/audio/cfg/all` | Audio configuration for all devices |  |  |
-| `/audio/cfg/equalizer/` | Audio configuration for equalizer |  |  |
-| `/audio/cfg/favorites/addpath/` | Add path to audio favorites |  |  |
-| `/audio/cfg/getfavorites/` | Get audio favorites |  |  |
-| `/audio/cfg/getinputs` | Get audio inputs |  |  |
-| `/audio/cfg/getkey` | Get public key |  |  |
-| `/audio/cfg/getmediafolder` | Get media folder |  |  |
-| `/audio/cfg/getmaster` | Get master device |  |  |
-| `/audio/cfg/getplayersdetails` | Get details of all players |  |  |
-| `/audio/cfg/getplaylists2/lms` | Get playlists |  |  |
-| `/audio/cfg/getradios` | Get radio stations |  |  |
-| `/audio/cfg/getroomfavs/` | Get room favorites |  |  |
-| `/audio/cfg/getservices` | Get available services |  |  |
-| `/audio/cfg/getsyncedplayers` | Get synced players |  |  |
-| `/audio/cfg/iamaminiserver/` | Declare as a mini server | ✅ | ✅ |
-| `/audio/cfg/input/[input]/rename/` | Rename an input |  |  |
-| `/audio/cfg/input/[input]/type/` | Set type of an input |  |  |
-| `/audio/cfg/mac` | Get MAC address | ✅ | ✅ |
-| `/audio/cfg/playlist/create` | Create a playlist |  |  |
-| `/audio/cfg/scanstatus` | Get scan status |  |  |
-| `/audio/cfg/getmonitorstatus` | Get monitor status |  |  |
-| `/audio/[id]/alarm/` | Set alarm |  |  |
-| `/audio/[id]/favoriteplay` | Play favorite |  |  |
-| `/audio/[id]/getqueue` | Get queue | ✅ |  |
-| `/audio/[id]/identifysource` | Identify source |  |  |
-| `/audio/[id]/library/play` | Play from library |  |  |
-| `/audio/[id]/linein` | Line in |  |  |
-| `/audio/[id]/off` | Turn off |  |  |
-| `/audio/[id]/on` | Turn on |  |  |
-| `/audio/[id]/pause` | Pause | ✅ | ✅ |
-| `/audio/[id]/play` | Play | ✅ | ✅ |
-| `/audio/[id]/playlist/` | Play playlist |  |  |
-| `/audio/[id]/position/[position]` | Set position | ✅ | ✅ |
-| `/audio/[id]/queueminus` | Go to last song | ✅ | ✅ |
-| `/audio/[id]/queueplus` | Go to next song | ✅ | ✅ |
-| `/audio/[id]/repeat/[repeat]` | Set repeat |  |  |
-| `/audio/[id]/roomfav/delete/[id]` | Delete room favorite |  |  |
-| `/audio/[id]/roomfav/play/[id]` | Play room favorite |  |  |
-| `/audio/[id]/roomfav/plus` | Add room favorite |  |  |
-| `/audio/[id]/roomfav/savepath/[id]/` | Save path as room favorite |  |  |
-| `/audio/[id]/serviceplay/` | Play service |  |  |
-| `/audio/[id]/shuffle/[shuffle]` | Set shuffle | ✅ |  |
-| `/audio/[id]/sync/[id]/` | Sync devices | ✅ |  |
-| `/audio/[id]/volume/[volume]` | Set volume | ✅ | ✅ |
+| URL Pattern | Description | Sonos Integration | Chomecast integration | Home Assistant |
+|-------------|-------------|-------------------|-----------------------|----------------|
+| `/audio/cfg/all` | Audio configuration for all devices |  |  |  |
+| `/audio/cfg/equalizer/` | Audio configuration for equalizer |  |  |  |
+| `/audio/cfg/favorites/addpath/` | Add path to audio favorites |  |  |  |
+| `/audio/cfg/getfavorites/` | Get audio favorites |  |  |  |
+| `/audio/cfg/getinputs` | Get audio inputs |  |  |  |
+| `/audio/cfg/getkey` | Get public key |  |  |  |
+| `/audio/cfg/getmediafolder` | Get media folder |  |  |  |
+| `/audio/cfg/getmaster` | Get master device |  |  |  |
+| `/audio/cfg/getplayersdetails` | Get details of all players |  |  |  |
+| `/audio/cfg/getplaylists2/lms` | Get playlists |  |  |  |
+| `/audio/cfg/getradios` | Get radio stations |  |  |  |
+| `/audio/cfg/getroomfavs/` | Get room favorites |  |  |  |
+| `/audio/cfg/getservices` | Get available services |  |  |  |
+| `/audio/cfg/getsyncedplayers` | Get synced players |  |  |  |
+| `/audio/cfg/iamaminiserver/` | Declare as a mini server | ✅ | ✅ | ✅ |
+| `/audio/cfg/input/[input]/rename/` | Rename an input |  |  |  |
+| `/audio/cfg/input/[input]/type/` | Set type of an input |  |  |  |
+| `/audio/cfg/mac` | Get MAC address | ✅ | ✅ | ✅ |
+| `/audio/cfg/playlist/create` | Create a playlist |  |  |  |
+| `/audio/cfg/scanstatus` | Get scan status |  |  |  |
+| `/audio/cfg/getmonitorstatus` | Get monitor status |  |  |  |
+| `/audio/[id]/alarm/` | Set alarm |  |  |  |
+| `/audio/[id]/favoriteplay` | Play favorite |  |  |  |
+| `/audio/[id]/getqueue` | Get queue | ✅ |  |  |
+| `/audio/[id]/identifysource` | Identify source |  |  |  |
+| `/audio/[id]/library/play` | Play from library |  |  |  |
+| `/audio/[id]/linein` | Line in |  |  |  |
+| `/audio/[id]/off` | Turn off |  |  |  |
+| `/audio/[id]/on` | Turn on |  |  |  |
+| `/audio/[id]/pause` | Pause | ✅ | ✅ | ✅ |
+| `/audio/[id]/play` | Play | ✅ | ✅ | ✅ |
+| `/audio/[id]/playlist/` | Play playlist |  |  |  |
+| `/audio/[id]/position/[position]` | Set position | ✅ | ✅ | ✅ |
+| `/audio/[id]/queueminus` | Go to last song | ✅ | ✅ | ✅ |
+| `/audio/[id]/queueplus` | Go to next song | ✅ | ✅ | ✅ |
+| `/audio/[id]/repeat/[repeat]` | Set repeat |  |  |  |
+| `/audio/[id]/roomfav/delete/[id]` | Delete room favorite |  |  |  |
+| `/audio/[id]/roomfav/play/[id]` | Play room favorite |  |  |  |
+| `/audio/[id]/roomfav/plus` | Add room favorite |  |  |  |
+| `/audio/[id]/roomfav/savepath/[id]/` | Save path as room favorite |  |  |  |
+| `/audio/[id]/serviceplay/` | Play service |  |  |  |
+| `/audio/[id]/shuffle/[shuffle]` | Set shuffle | ✅ |  | ✅ |
+| `/audio/[id]/sync/[id]` | Sync devices | ✅ |  | ✅ |
+| `/audio/[id]/tts/[text]/[volume]` | Text-To-Speech | ✅ |  |  |
+| `/audio/[id]/volume/[volume]` | Set volume | ✅ | ✅ | ✅ |
 
 In this table, [id] is a placeholder for the ID of an audio zone.
 
